@@ -1,17 +1,23 @@
 import path from 'path';
+import webpack from 'webpack';
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    main: 'main.js',
+    vendor: [
+      'react',
+      'react-dom',
+    ],
+  },
   output: {
-    path: `${__dirname}/dist`,
+    path: `${__dirname}/../../dist`,
     filename: 'bundle.js',
   },
   resolve: {
-    root: path.join(`${__dirname}/src`),
+    root: path.join(`${__dirname}/../js`),
   },
   module: {
     loaders: [
-      { test: /\.css$/, loader: 'style!css' },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -22,4 +28,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin('vendor', './js/vendor.js'),
+  ],
 };

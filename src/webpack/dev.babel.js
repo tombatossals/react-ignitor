@@ -8,12 +8,15 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:8080',
   ],
   output: {
-    path: `${__dirname}/../dist`,
+    path: `${__dirname}/../../dist`,
     publicPath: '/dist',
     filename: 'bundle.js',
   },
   resolve: {
-    root: path.join(`${__dirname}/../src`),
+    root: path.join(`${__dirname}/../js`),
+  },
+  devServer: {
+    contentBase: 'src/www',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -21,7 +24,6 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.css$/, loader: 'style!css' },
       {
         test: /\.js$/,
         exclude: /node_modules/,

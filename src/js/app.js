@@ -1,7 +1,7 @@
 import React from 'react';
 
 function App() {
-  return <span>'Hello World 2'</span>;
+  return <span>Hello World</span>;
 }
 
 export default App;
