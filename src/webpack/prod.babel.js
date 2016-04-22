@@ -3,10 +3,11 @@ import webpack from 'webpack';
 
 module.exports = {
   entry: {
-    main: 'main.js',
+    main: 'root.js',
     vendor: [
       'react',
       'react-dom',
+      'lodash-debounce',
     ],
   },
   output: {
