@@ -7,7 +7,7 @@ module.exports = {
     vendor: [
       'react',
       'react-dom',
-      'lodash-debounce',
+      'react-router',
     ],
   },
   output: {
